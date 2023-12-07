@@ -21,4 +21,4 @@ Follow the steps to build the application
 8. npm install --save-dev electron-builder
 
 ### Build the Electron Windows Appplication
-9. npx electron-builder --win portable
+9. npx electron-builder --win portable"# scheduling" 
