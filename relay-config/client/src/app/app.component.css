@@ -26,3 +26,12 @@ mat-card {
     flex-wrap: wrap;
     gap: 10px;
 }
+
+.schedulingForm {
+    display: flex;
+  }
+  
+.relay-group {
+    flex: 1;
+    margin-right: 10px; /* Adjust the margin as needed for spacing */
+}

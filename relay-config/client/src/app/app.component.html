@@ -67,3 +67,307 @@
 
   </mat-card-content>
 </mat-card>
+
+<!-- scheduling-->
+
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Scheduling</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="scheduling" class="schedulingForm">
+<!--for relay1-->
+<div formGroupName="relay1" class="relay-group">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Relay 1</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <!-- First set of controls for relay1-->
+      <div formGroupName="set1" class=" set-group">
+        <mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+        <mat-form-field>
+          <input matInput placeholder="Time (HH:mm)" formControlName="time">
+          <mat-error *ngIf="scheduling.get('set1.time')?.hasError('required')">Time is required</mat-error>
+          <mat-error *ngIf="scheduling.get('set1.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+        </mat-form-field>
+
+        <mat-button-toggle-group formControlName="state">
+          <mat-button-toggle value="on">On</mat-button-toggle>
+          <mat-button-toggle value="off">Off</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+<!-- Second set of controls for relay 1-->
+<div formGroupName="set2" class=" set-group">
+  <mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+  <mat-form-field>
+    <input matInput placeholder="Time (HH:mm)" formControlName="time">
+    <mat-error *ngIf="scheduling.get('set2.time')?.hasError('required')">Time is required</mat-error>
+    <mat-error *ngIf="scheduling.get('set2.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+  </mat-form-field>
+
+  <mat-button-toggle-group formControlName="state">
+    <mat-button-toggle value="on">On</mat-button-toggle>
+    <mat-button-toggle value="off">Off</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<!-- Third set of controls for relay 1-->
+<div formGroupName="set3" class=" set-group">
+  <mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+  <mat-form-field>
+    <input matInput placeholder="Time (HH:mm)" formControlName="time">
+    <mat-error *ngIf="scheduling.get('set3.time')?.hasError('required')">Time is required</mat-error>
+    <mat-error *ngIf="scheduling.get('set3.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+  </mat-form-field>
+
+  <mat-button-toggle-group formControlName="state">
+    <mat-button-toggle value="on">On</mat-button-toggle>
+    <mat-button-toggle value="off">Off</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+
+<!-- Fourth set of controls for relay 1-->
+<div formGroupName="set4" class=" set-group">
+  <mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+  <mat-form-field>
+    <input matInput placeholder="Time (HH:mm)" formControlName="time">
+    <mat-error *ngIf="scheduling.get('set4.time')?.hasError('required')">Time is required</mat-error>
+    <mat-error *ngIf="scheduling.get('set4.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+  </mat-form-field>
+
+  <mat-button-toggle-group formControlName="state">
+    <mat-button-toggle value="on">On</mat-button-toggle>
+    <mat-button-toggle value="off">Off</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+</mat-card-content>
+</mat-card>
+</div>
+
+<!--for relay2-->
+<div formGroupName="relay2" class="relay-group">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Relay 2</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+<!-- First set of controls for relay2-->
+<div formGroupName="set1" class=" set-group">
+  <mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+  <mat-form-field>
+    <input matInput placeholder="Time (HH:mm)" formControlName="time">
+    <mat-error *ngIf="scheduling.get('set1.time')?.hasError('required')">Time is required</mat-error>
+    <mat-error *ngIf="scheduling.get('set1.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+  </mat-form-field>
+
+  <mat-button-toggle-group formControlName="state">
+    <mat-button-toggle value="on">On</mat-button-toggle>
+    <mat-button-toggle value="off">Off</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<!-- Second set of controls for relay 2-->
+<div formGroupName="set2" class=" set-group">
+<mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+<mat-form-field>
+<input matInput placeholder="Time (HH:mm)" formControlName="time">
+<mat-error *ngIf="scheduling.get('set2.time')?.hasError('required')">Time is required</mat-error>
+<mat-error *ngIf="scheduling.get('set2.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+</mat-form-field>
+
+<mat-button-toggle-group formControlName="state">
+<mat-button-toggle value="on">On</mat-button-toggle>
+<mat-button-toggle value="off">Off</mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+
+<!-- Third set of controls for relay 2-->
+<div formGroupName="set3" class=" set-group">
+<mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+<mat-form-field>
+<input matInput placeholder="Time (HH:mm)" formControlName="time">
+<mat-error *ngIf="scheduling.get('set3.time')?.hasError('required')">Time is required</mat-error>
+<mat-error *ngIf="scheduling.get('set3.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+</mat-form-field>
+
+<mat-button-toggle-group formControlName="state">
+<mat-button-toggle value="on">On</mat-button-toggle>
+<mat-button-toggle value="off">Off</mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+
+<!-- Fourth set of controls for relay 2-->
+<div formGroupName="set4" class=" set-group">
+<mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+<mat-form-field>
+<input matInput placeholder="Time (HH:mm)" formControlName="time">
+<mat-error *ngIf="scheduling.get('set4.time')?.hasError('required')">Time is required</mat-error>
+<mat-error *ngIf="scheduling.get('set4.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+</mat-form-field>
+
+<mat-button-toggle-group formControlName="state">
+<mat-button-toggle value="on">On</mat-button-toggle>
+<mat-button-toggle value="off">Off</mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+</mat-card-content>
+</mat-card>
+</div>
+
+<!--for relay3-->
+<div formGroupName="relay3" class="relay-group">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Relay 3</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+<!-- First set of controls for relay3-->
+<div formGroupName="set1" class=" set-group">
+  <mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+  <mat-form-field>
+    <input matInput placeholder="Time (HH:mm)" formControlName="time">
+    <mat-error *ngIf="scheduling.get('set1.time')?.hasError('required')">Time is required</mat-error>
+    <mat-error *ngIf="scheduling.get('set1.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+  </mat-form-field>
+
+  <mat-button-toggle-group formControlName="state">
+    <mat-button-toggle value="on">On</mat-button-toggle>
+    <mat-button-toggle value="off">Off</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<!-- Second set of controls for relay 3-->
+<div formGroupName="set2" class=" set-group">
+<mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+<mat-form-field>
+<input matInput placeholder="Time (HH:mm)" formControlName="time">
+<mat-error *ngIf="scheduling.get('set2.time')?.hasError('required')">Time is required</mat-error>
+<mat-error *ngIf="scheduling.get('set2.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+</mat-form-field>
+
+<mat-button-toggle-group formControlName="state">
+<mat-button-toggle value="on">On</mat-button-toggle>
+<mat-button-toggle value="off">Off</mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+
+<!-- Third set of controls for relay 3-->
+<div formGroupName="set3" class=" set-group">
+<mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+<mat-form-field>
+<input matInput placeholder="Time (HH:mm)" formControlName="time">
+<mat-error *ngIf="scheduling.get('set3.time')?.hasError('required')">Time is required</mat-error>
+<mat-error *ngIf="scheduling.get('set3.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+</mat-form-field>
+
+<mat-button-toggle-group formControlName="state">
+<mat-button-toggle value="on">On</mat-button-toggle>
+<mat-button-toggle value="off">Off</mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+
+<!-- Fourth set of controls for relay 3-->
+<div formGroupName="set4" class=" set-group">
+<mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+<mat-form-field>
+<input matInput placeholder="Time (HH:mm)" formControlName="time">
+<mat-error *ngIf="scheduling.get('set4.time')?.hasError('required')">Time is required</mat-error>
+<mat-error *ngIf="scheduling.get('set4.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+</mat-form-field>
+
+<mat-button-toggle-group formControlName="state">
+<mat-button-toggle value="on">On</mat-button-toggle>
+<mat-button-toggle value="off">Off</mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+</mat-card-content>
+</mat-card>
+</div>
+
+<!--for relay4-->
+<div formGroupName="relay4" class="relay-group">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Relay 4</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+<!-- First set of controls for relay1-->
+<div formGroupName="set1" class=" set-group">
+  <mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+  <mat-form-field>
+    <input matInput placeholder="Time (HH:mm)" formControlName="time">
+    <mat-error *ngIf="scheduling.get('set1.time')?.hasError('required')">Time is required</mat-error>
+    <mat-error *ngIf="scheduling.get('set1.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+  </mat-form-field>
+
+  <mat-button-toggle-group formControlName="state">
+    <mat-button-toggle value="on">On</mat-button-toggle>
+    <mat-button-toggle value="off">Off</mat-button-toggle>
+  </mat-button-toggle-group>
+</div>
+<!-- Second set of controls for relay 4-->
+<div formGroupName="set2" class=" set-group">
+<mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+<mat-form-field>
+<input matInput placeholder="Time (HH:mm)" formControlName="time">
+<mat-error *ngIf="scheduling.get('set2.time')?.hasError('required')">Time is required</mat-error>
+<mat-error *ngIf="scheduling.get('set2.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+</mat-form-field>
+
+<mat-button-toggle-group formControlName="state">
+<mat-button-toggle value="on">On</mat-button-toggle>
+<mat-button-toggle value="off">Off</mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+
+<!-- Third set of controls for relay 4-->
+<div formGroupName="set3" class=" set-group">
+<mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+<mat-form-field>
+<input matInput placeholder="Time (HH:mm)" formControlName="time">
+<mat-error *ngIf="scheduling.get('set3.time')?.hasError('required')">Time is required</mat-error>
+<mat-error *ngIf="scheduling.get('set3.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+</mat-form-field>
+
+<mat-button-toggle-group formControlName="state">
+<mat-button-toggle value="on">On</mat-button-toggle>
+<mat-button-toggle value="off">Off</mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+
+<!-- Fourth set of controls for relay 4-->
+<div formGroupName="set4" class=" set-group">
+<mat-checkbox formControlName="isChecked"> </mat-checkbox>
+
+<mat-form-field>
+<input matInput placeholder="Time (HH:mm)" formControlName="time">
+<mat-error *ngIf="scheduling.get('set4.time')?.hasError('required')">Time is required</mat-error>
+<mat-error *ngIf="scheduling.get('set4.time')?.hasError('pattern')">Invalid time format (HH:mm)</mat-error>
+</mat-form-field>
+
+<mat-button-toggle-group formControlName="state">
+<mat-button-toggle value="on">On</mat-button-toggle>
+<mat-button-toggle value="off">Off</mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+</mat-card-content>
+</mat-card>
+</div>
+
+</form>
+  </mat-card-content>
+</mat-card>
