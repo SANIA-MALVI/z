@@ -22,3 +22,4 @@ Follow the steps to build the application
 
 ### Build the Electron Windows Appplication
 9. npx electron-builder --win portable"# scheduling" 
+"# zyarr" 
