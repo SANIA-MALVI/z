@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl ,FormGroup} from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { AppService } from './app.service';
 import { IPAddressType, RelayConfigType } from './app.model'; import { IpcRendererEvent } from 'electron';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -25,38 +26,43 @@ export class AppComponent {
     relay4: 'off'
   });
 
-  scheduling = this.formBuilder.group({
-    set1: this.formBuilder.group({
-      isChecked: [false],
-      time: ['', [Validators.required, Validators.pattern(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/)]],
-      state: ['off'],
-    }),
-    set2: this.formBuilder.group({
-      isChecked: [false],
-      time: ['', [Validators.required, Validators.pattern(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/)]],
-      state: ['off'],
-    }),
-    set3: this.formBuilder.group({
-      isChecked: [false],
-      time: ['', [Validators.required, Validators.pattern(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/)]],
-      state: ['off'],
-    }),
-    set4: this.formBuilder.group({
-      isChecked: [false],
-      time: ['', [Validators.required, Validators.pattern(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/)]],
-      state: ['off'],
-    }),
-  });
+  private subscriptions: Subscription[] = [];
 
+  scheduling: FormGroup;
 
-  
   constructor(
     private formBuilder: FormBuilder,
     private readonly ipc: AppService) {
 
     this.relayConfig.disable()
-    //this.scheduling.disable()
-  
+
+    this.scheduling = this.formBuilder.group({
+      relay1: this.formBuilder.group({
+        set1: this.createSet(),
+        set2: this.createSet(),
+        set3: this.createSet(),
+        set4: this.createSet(),
+      }),
+      relay2: this.formBuilder.group({
+        set1: this.createSet(),
+        set2: this.createSet(),
+        set3: this.createSet(),
+        set4: this.createSet(),
+      }),
+      relay3: this.formBuilder.group({
+        set1: this.createSet(),
+        set2: this.createSet(),
+        set3: this.createSet(),
+        set4: this.createSet(),
+      }),
+      relay4: this.formBuilder.group({
+        set1: this.createSet(),
+        set2: this.createSet(),
+        set3: this.createSet(),
+        set4: this.createSet(),
+      }),
+    });
+    
   }
 
   get ipaddress(): FormControl {
@@ -104,5 +110,37 @@ export class AppComponent {
     dataToSend += 'relay4' + data.relay4
     this.ipc.send('relayconfig', dataToSend);
   }
+  createSet() {
+    const set = this.formBuilder.group({
+      isChecked: [{value: false, disabled: true}],
+      time: ['', [Validators.required, Validators.pattern(/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/)]],
+      state: [{value: 'off', disabled: true}],
+    });
+  
+    const timeControl = set.get('time');
+    const isCheckedControl = set.get('isChecked');
+    const stateControl = set.get('state');
+  
+    if (timeControl && isCheckedControl && stateControl) {
+      const subscription = timeControl.statusChanges.subscribe(status => {
+        if (status === 'VALID') {
+          isCheckedControl.enable();
+          stateControl.enable();
+        } else {
+          isCheckedControl.disable();
+          stateControl.disable();
+        }
+      });
+  
+      this.subscriptions.push(subscription);
+    }
+    
+    return set;
+  }
+  
+  
+  ngOnDestroy() {
+    this.subscriptions.forEach(subscription => subscription.unsubscribe());
+  }
+  
 }
-
